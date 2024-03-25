@@ -1,4 +1,4 @@
-import 'package:mrchord_app/foundation/network/network_constants.dart';
+import 'network_constants.dart';
 
 sealed class HttpRequestStatus {
   const HttpRequestStatus(this.message);

@@ -1,31 +1,31 @@
 import 'network_constants.dart';
 
-sealed class HttpRequestStatus {
-  const HttpRequestStatus(this.message);
+sealed class RequestStatus {
+  const RequestStatus(this.message);
   final String message;
 }
 
-class SuccessfulRequest extends HttpRequestStatus {
+class SuccessfulRequest extends RequestStatus {
   const SuccessfulRequest() : super(NetworkConstants.successfulRequestMessage);
 }
 
-class AccessDenied extends HttpRequestStatus {
+class AccessDenied extends RequestStatus {
   const AccessDenied() : super(NetworkConstants.accessDeniedMessage);
 }
 
-class UnavailableServer extends HttpRequestStatus {
+class UnavailableServer extends RequestStatus {
   const UnavailableServer() : super(NetworkConstants.unavailableServerMessage);
 }
 
-class ConnectionNetwork extends HttpRequestStatus {
+class ConnectionNetwork extends RequestStatus {
   const ConnectionNetwork() : super(NetworkConstants.connectionNetworkMessage);
 }
 
-class Unknown extends HttpRequestStatus {
+class Unknown extends RequestStatus {
   const Unknown(this.errorMessage) : super(errorMessage);
   final String errorMessage;
 }
 
-extension on HttpRequestStatus {
+extension on RequestStatus {
   hasErrors() => this is! SuccessfulRequest;
 }

@@ -1,5 +1,5 @@
 class HomeApiResponse {
-  final HomeScreen homeScreen;
+  final HomeScreenApiResponse homeScreen;
 
   HomeApiResponse({
     required this.homeScreen,
@@ -7,36 +7,36 @@ class HomeApiResponse {
 
 }
 
-class HomeScreen {
-  final StaticContent staticContent;
-  final Chords chords;
+class HomeScreenApiResponse {
+  final StaticContentApiResponse staticContent;
+  final ChordsApiResponse chords;
 
-  HomeScreen({
+  HomeScreenApiResponse({
     required this.staticContent,
     required this.chords,
   });
 
 }
 
-class Chords {
-  final List<Group> groups;
-  final List<Basic> basics;
+class ChordsApiResponse {
+  final List<GroupApiResponse> groups;
+  final List<BasicApiResponse> basics;
 
-  Chords({
+  ChordsApiResponse({
     required this.groups,
     required this.basics,
   });
 
 }
 
-class Basic {
+class BasicApiResponse {
   final int id;
   final int groupId;
   final String note;
   final String latinNote;
   final String chordImg;
 
-  Basic({
+  BasicApiResponse({
     required this.id,
     required this.groupId,
     required this.note,
@@ -46,12 +46,12 @@ class Basic {
 
 }
 
-class Group {
+class GroupApiResponse {
   final int id;
   final String name;
   final String latinName;
 
-  Group({
+  GroupApiResponse({
     required this.id,
     required this.name,
     required this.latinName,
@@ -59,13 +59,13 @@ class Group {
 
 }
 
-class StaticContent {
+class StaticContentApiResponse {
   final String title;
   final String subtitle;
   final String description;
   final String chordImg;
 
-  StaticContent({
+  StaticContentApiResponse({
     required this.title,
     required this.subtitle,
     required this.description,

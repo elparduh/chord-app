@@ -1,12 +1,12 @@
-class ChordApiResponse {
+class HomeApiResponse {
   final HomeScreenApiResponse homeScreen;
 
-  ChordApiResponse({
+  HomeApiResponse({
     required this.homeScreen,
   });
 
-  factory ChordApiResponse.fromJson(Map<String, dynamic> json) =>
-      ChordApiResponse(
+  factory HomeApiResponse.fromJson(Map<String, dynamic> json) =>
+      HomeApiResponse(
         homeScreen: HomeScreenApiResponse.fromJson(json["homeScreen"]),
       );
 }

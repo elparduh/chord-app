@@ -13,7 +13,7 @@ class Endpoint {
       this.body});
 }
 
-extension on Endpoint {
+extension EndpointExt on Endpoint {
   Uri getUrlRequest() {
     Uri url = Uri.parse(path);
     return url;

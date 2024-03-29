@@ -26,6 +26,6 @@ class Unknown extends RequestResponseStatus {
   final String errorMessage;
 }
 
-extension on RequestResponseStatus {
+extension RequestResponseStatusExt on RequestResponseStatus {
   hasErrors() => this is! SuccessfulRequest;
 }

@@ -1,10 +1,14 @@
-class HomeApiResponse {
+class ChordApiResponse {
   final HomeScreenApiResponse homeScreen;
 
-  HomeApiResponse({
+  ChordApiResponse({
     required this.homeScreen,
   });
 
+  factory ChordApiResponse.fromJson(Map<String, dynamic> json) =>
+      ChordApiResponse(
+        homeScreen: HomeScreenApiResponse.fromJson(json["homeScreen"]),
+      );
 }
 
 class HomeScreenApiResponse {
@@ -16,6 +20,11 @@ class HomeScreenApiResponse {
     required this.chords,
   });
 
+  factory HomeScreenApiResponse.fromJson(Map<String, dynamic> json) =>
+      HomeScreenApiResponse(
+        staticContent: StaticContentApiResponse.fromJson(json["staticContent"]),
+        chords: ChordsApiResponse.fromJson(json["chords"]),
+      );
 }
 
 class ChordsApiResponse {
@@ -27,6 +36,15 @@ class ChordsApiResponse {
     required this.basics,
   });
 
+  factory ChordsApiResponse.fromJson(Map<String, dynamic> json) =>
+      ChordsApiResponse(
+        groups: List<GroupApiResponse>.from(
+            json["groups"].map((x) => GroupApiResponse.fromJson(x))
+        ),
+        basics: List<BasicApiResponse>.from(
+            json["basics"].map((x) => BasicApiResponse.fromJson(x))
+        ),
+  );
 }
 
 class BasicApiResponse {
@@ -44,6 +62,14 @@ class BasicApiResponse {
     required this.chordImg,
   });
 
+  factory BasicApiResponse.fromJson(Map<String, dynamic> json) =>
+      BasicApiResponse(
+        id: json["id"],
+        groupId: json["groupId"],
+        note: json["note"],
+        latinNote: json["latinNote"],
+        chordImg: json["chordImg"],
+      );
 }
 
 class GroupApiResponse {
@@ -57,6 +83,12 @@ class GroupApiResponse {
     required this.latinName,
   });
 
+  factory GroupApiResponse.fromJson(Map<String, dynamic> json) =>
+      GroupApiResponse(
+        id: json["id"],
+        name: json["name"],
+        latinName: json["latinName"],
+      );
 }
 
 class StaticContentApiResponse {
@@ -72,4 +104,11 @@ class StaticContentApiResponse {
     required this.chordImg,
   });
 
+  factory StaticContentApiResponse.fromJson(Map<String, dynamic> json) =>
+      StaticContentApiResponse(
+        title: json["title"],
+        subtitle: json["subtitle"],
+        description: json["description"],
+        chordImg: json["chordImg"],
+      );
 }

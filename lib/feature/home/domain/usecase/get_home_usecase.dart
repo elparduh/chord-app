@@ -1,10 +1,11 @@
-import 'package:mrchord_app/feature/home/data/home_repository.dart';
-import 'package:mrchord_app/feature/home/domain/model/home_models.dart';
+import 'package:mrchord_app/feature/home/domain/entity/home_screen.dart';
+import 'package:mrchord_app/feature/home/domain/repository/home_repository.dart';
+
 
 class GetHomeUseCase {
   final HomeRepository _homeRepository;
 
   const GetHomeUseCase(this._homeRepository);
 
-  Future<HomeScreen> getHome() async => _homeRepository.getHome();
+  Future<HomeScreen> call() async => _homeRepository.getHome();
 }

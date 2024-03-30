@@ -1,4 +1,4 @@
-import 'package:mrchord_app/feature/home/domain/entity/home_models.dart';
+import 'package:mrchord_app/feature/home/domain/model/home_models.dart';
 import '../model/home_api_models.dart';
 
 extension HomeApiResponseExt on HomeApiResponse {

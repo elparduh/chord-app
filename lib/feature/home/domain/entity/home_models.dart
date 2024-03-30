@@ -5,14 +5,16 @@ class HomeScreen extends Equatable {
   final String subtitle;
   final String description;
   final String chordImg;
-  final List<ChordsBasic> chordsBasic;
+  final List<Group> groups;
+  final List<Chord> chords;
 
   const HomeScreen({
     required this.title,
     required this.subtitle,
     required this.description,
     required this.chordImg,
-    required this.chordsBasic,
+    required this.groups,
+    required this.chords,
   });
 
   @override
@@ -21,18 +23,38 @@ class HomeScreen extends Equatable {
     subtitle,
     description,
     chordImg,
-    chordsBasic,
+    groups,
+    chords,
   ];
 }
 
-class ChordsBasic extends Equatable {
+class Group extends Equatable {
+  final int id;
+  final String name;
+  final String latinName;
+
+  const Group({
+    required this.id,
+    required this.name,
+    required this.latinName,
+  });
+
+  @override
+  List<Object?> get props => [
+    id,
+    name,
+    latinName
+  ];
+}
+
+class Chord extends Equatable {
   final int id;
   final int groupId;
   final String note;
   final String latinNote;
   final String chordImg;
 
-  const ChordsBasic({
+  const Chord({
     required this.id,
     required this.groupId,
     required this.note,

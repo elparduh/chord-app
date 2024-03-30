@@ -7,7 +7,7 @@ class HomeApiResponse {
 
   factory HomeApiResponse.fromJson(Map<String, dynamic> json) =>
       HomeApiResponse(
-        homeScreen: HomeScreenApiResponse.fromJson(json["homeScreen"]),
+        homeScreen: HomeScreenApiResponse.fromJson(json['homeScreen']),
       );
 }
 
@@ -22,8 +22,8 @@ class HomeScreenApiResponse {
 
   factory HomeScreenApiResponse.fromJson(Map<String, dynamic> json) =>
       HomeScreenApiResponse(
-        staticContent: StaticContentApiResponse.fromJson(json["staticContent"]),
-        chords: ChordsApiResponse.fromJson(json["chords"]),
+        staticContent: StaticContentApiResponse.fromJson(json['staticContent']),
+        chords: ChordsApiResponse.fromJson(json['chords']),
       );
 }
 
@@ -39,10 +39,10 @@ class ChordsApiResponse {
   factory ChordsApiResponse.fromJson(Map<String, dynamic> json) =>
       ChordsApiResponse(
         groups: List<GroupApiResponse>.from(
-            json["groups"].map((x) => GroupApiResponse.fromJson(x))
+            json['groups'].map((x) => GroupApiResponse.fromJson(x))
         ),
         basics: List<BasicApiResponse>.from(
-            json["basics"].map((x) => BasicApiResponse.fromJson(x))
+            json['basics'].map((x) => BasicApiResponse.fromJson(x))
         ),
   );
 }
@@ -64,11 +64,11 @@ class BasicApiResponse {
 
   factory BasicApiResponse.fromJson(Map<String, dynamic> json) =>
       BasicApiResponse(
-        id: json["id"],
-        groupId: json["groupId"],
-        note: json["note"],
-        latinNote: json["latinNote"],
-        chordImg: json["chordImg"],
+        id: json['id'],
+        groupId: json['groupId'],
+        note: json['note'],
+        latinNote: json['latinNote'],
+        chordImg: json['chordImg'],
       );
 }
 
@@ -85,9 +85,9 @@ class GroupApiResponse {
 
   factory GroupApiResponse.fromJson(Map<String, dynamic> json) =>
       GroupApiResponse(
-        id: json["id"],
-        name: json["name"],
-        latinName: json["latinName"],
+        id: json['id'],
+        name: json['name'],
+        latinName: json['latinName'],
       );
 }
 
@@ -106,9 +106,9 @@ class StaticContentApiResponse {
 
   factory StaticContentApiResponse.fromJson(Map<String, dynamic> json) =>
       StaticContentApiResponse(
-        title: json["title"],
-        subtitle: json["subtitle"],
-        description: json["description"],
-        chordImg: json["chordImg"],
+        title: json['title'],
+        subtitle: json['subtitle'],
+        description: json['description'],
+        chordImg: json['chordImg'],
       );
 }

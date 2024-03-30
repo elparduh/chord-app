@@ -49,3 +49,12 @@ class ItemChordView extends StatelessWidget {
     );
   }
 }
+
+/*
+* child: ListView.builder(
+          itemCount: _chords.length,
+          itemBuilder: (context, index) {
+            return ItemChordView(_chords[index]);
+          },
+        ),
+* */

@@ -1,7 +1,12 @@
-import 'package:mrchord_app/feature/home/domain/model/home_models.dart';
-import '../model/home_api_models.dart';
 
-extension HomeApiResponseExt on HomeApiResponse {
+import 'package:mrchord_app/feature/home/data/dto/basic_api_dto.dart';
+import 'package:mrchord_app/feature/home/data/dto/group_api_dto.dart';
+import 'package:mrchord_app/feature/home/data/dto/home_api_dto.dart';
+import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
+import 'package:mrchord_app/feature/home/domain/entity/group.dart';
+import 'package:mrchord_app/feature/home/domain/entity/home_screen.dart';
+
+extension HomeApiResponseExt on HomeApiDto {
   toHomeScreen() => HomeScreen(
     title: homeScreen.staticContent.title,
     subtitle: homeScreen.staticContent.subtitle,
@@ -12,12 +17,12 @@ extension HomeApiResponseExt on HomeApiResponse {
   );
 }
 
-extension GroupListExt on List<GroupApiResponse> {
+extension GroupListExt on List<GroupApiDto> {
   List<Group> toGroupList() =>
       map<Group>((e) => e.toGroup()).toList();
 }
 
-extension GroupApiResponseExt on GroupApiResponse {
+extension GroupApiResponseExt on GroupApiDto {
   toGroup() => Group(
       id: id,
       name: name,
@@ -25,12 +30,12 @@ extension GroupApiResponseExt on GroupApiResponse {
   );
 }
 
-extension BasicListExt on List<BasicApiResponse> {
+extension BasicListExt on List<BasicApiDto> {
   List<Chord> toChordList() =>
       map<Chord>((e) => e.toChord()).toList();
 }
 
-extension BasicApiResponseExt on BasicApiResponse {
+extension BasicApiResponseExt on BasicApiDto {
   toChord() => Chord(
     id: id,
     groupId: groupId,

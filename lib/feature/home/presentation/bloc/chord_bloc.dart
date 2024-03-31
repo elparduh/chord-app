@@ -25,4 +25,8 @@ class ChordBloc extends Bloc<ChordEvent, ChordState> {
           createChordStateStatus: CreateChordStateError(exception.toString())));
     });
   }
+
+  onLoadHome() {
+    add(LoadHomeEvent());
+  }
 }

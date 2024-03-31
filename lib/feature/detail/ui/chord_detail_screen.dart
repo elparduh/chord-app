@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mrchord_app/feature/detail/ui/chord_image_view.dart';
-import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
+import 'package:mrchord_app/feature/home/presentation/uimodel/chord_ui.dart';
 
 class ChordDetailScreen extends StatelessWidget {
-  final Chord _chord;
-  const ChordDetailScreen(this._chord, {Key? key}): super(key: key);
+  final ChordUi _chordUi;
+  const ChordDetailScreen(this._chordUi, {Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,15 @@ class ChordDetailScreen extends StatelessWidget {
           child: Column(
             children: [
               ChordImageView(
-                  _chord.chordImg
+                  _chordUi.chordImg
               ),
               Text(
-                '${_chord.note} (${_chord.latinNote})',
-                style: Theme.of(context).textTheme.headlineMedium,
+                'Cifrado: ${_chordUi.note}',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              Text(
+                'Notación Latina: ${_chordUi.latinNote}',
+                style: Theme.of(context).textTheme.labelMedium,
               )
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:mrchord_app/feature/home/presentation/uimodel/chord_ui.dart';
 
 class Chord extends Equatable {
   final int id;
@@ -23,4 +24,19 @@ class Chord extends Equatable {
     latinNote,
     chordImg,
   ];
+}
+
+extension ChordListExt on List<Chord> {
+  List<ChordUi> toChordUiList() =>
+      map<ChordUi>((e) => e.toChordUi()).toList();
+}
+
+extension ChordExt on Chord {
+  toChordUi() => ChordUi(
+      id: id,
+      groupId: groupId,
+      note: note,
+      latinNote: latinNote,
+      chordImg: chordImg
+  );
 }

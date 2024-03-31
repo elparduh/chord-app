@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mrchord_app/feature/home/data/datasource/home_remote_datasource.dart';
+import 'package:mrchord_app/feature/home/data/repository/home_repository_impl.dart';
 import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
-import 'package:mrchord_app/feature/home/presentation/ui/tile_chord_view.dart';
+import 'package:mrchord_app/feature/home/domain/usecase/get_home_usecase.dart';
+import 'package:mrchord_app/feature/home/presentation/bloc/chord_bloc.dart';
+import 'package:mrchord_app/feature/home/presentation/ui/chord_grid_view.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}): super(key: key);
@@ -24,6 +29,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeRemoteDataSourceImpl = HomeRemoteDataSourceImpl();
+    final homeRepositoryImpl = HomeRepositoryImpl(homeRemoteDataSourceImpl);
+    final getHomeUseCase = GetHomeUseCase(homeRepositoryImpl);
+    final bloc = ChordBloc(getHomeUseCase);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -32,18 +42,11 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlue,
       ),
       body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.all(16),
-          child: GridView.builder(
-              itemCount: _chords.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2
-              ),
-              itemBuilder: (context, index) {
-                return TileChordView(
-                    _chords[index]
-                );
-              }
+        child: BlocProvider(
+          create: (_) => bloc,
+          child: Container(
+            margin: const EdgeInsets.all(16),
+            child: ChordGridView(_chords),
           ),
         ),
       )

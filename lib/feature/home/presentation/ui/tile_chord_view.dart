@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mrchord_app/feature/detail/ui/chord_detail_screen.dart';
 import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
 
 class TileChordView extends StatelessWidget {
@@ -10,7 +11,7 @@ class TileChordView extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(4.0),
       onTap: () {
-        _navigateToChordDetail();
+        _navigateToChordDetail(context, _chord);
       },
       child: Container(
         alignment: AlignmentDirectional.center,
@@ -18,21 +19,21 @@ class TileChordView extends StatelessWidget {
           children: [
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8.0),
                 child: Image.network(
                     _chord.chordImg,
                 ),
               ),
             ),
             const SizedBox(
-              height: 8,
+              height: 8.0,
             ),
             Text(
               _chord.note,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(
-              height: 8,
+              height: 8.0,
             ),
           ],
         ),
@@ -40,5 +41,12 @@ class TileChordView extends StatelessWidget {
     );
   }
 
-  void _navigateToChordDetail() {}
+  void _navigateToChordDetail(BuildContext buildContext, Chord chord) {
+    Navigator.push(
+        buildContext,
+        MaterialPageRoute(
+            builder: (buildContext) => ChordDetailScreen(chord)
+        )
+    );
+  }
 }

@@ -3,7 +3,7 @@ import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
 import 'package:mrchord_app/feature/home/presentation/ui/tile_chord_view.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  HomeScreen({Key? key}): super(key: key);
 
   final List<Chord> _chords = [
     const Chord(
@@ -26,7 +26,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Biblioteca de acordes'),
+        title: const Text(
+            'Biblioteca de acordes'
+        ),
         backgroundColor: Colors.lightBlue,
       ),
       body: SafeArea(

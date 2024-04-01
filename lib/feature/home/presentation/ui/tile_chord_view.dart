@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mrchord_app/feature/detail/ui/chord_detail_screen.dart';
-import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
 import 'package:mrchord_app/feature/home/presentation/uimodel/chord_ui.dart';
 
 class TileChordView extends StatelessWidget {

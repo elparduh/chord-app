@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrchord_app/feature/home/domain/entity/chord.dart';
 import 'package:mrchord_app/feature/home/presentation/bloc/chord_bloc.dart';
 import 'package:mrchord_app/feature/home/presentation/bloc/chord_state.dart';
 import 'package:mrchord_app/feature/home/presentation/ui/tile_chord_view.dart';

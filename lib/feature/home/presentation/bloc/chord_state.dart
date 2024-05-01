@@ -10,9 +10,9 @@ class ChordState extends Equatable {
       {required this.chordList, required this.createChordStateStatus});
 
   static ChordState initial() => ChordState(
-    chordList: const [],
-    createChordStateStatus: CreateChordStateInitial(),
-  );
+        chordList: const [],
+        createChordStateStatus: CreateChordStateInitial(),
+      );
 
   ChordState copyWith({
     List<Chord>? chordList,
@@ -21,7 +21,7 @@ class ChordState extends Equatable {
       ChordState(
           chordList: chordList ?? this.chordList,
           createChordStateStatus:
-          createChordStateStatus ?? this.createChordStateStatus);
+              createChordStateStatus ?? this.createChordStateStatus);
 
   @override
   List<Object?> get props => [chordList, createChordStateStatus];
